@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  dockerPostgres:
+    container_name: postgres
+    image: postgres:14.8-alpine3.18
+    restart: always
+    environment:
+      POSTGRES_USER: myUser
+      POSTGRES_PASSWORD: myPassword
+      POSTGRES_DB: myDb
+    volumes:
+      - ./dataBase:/var/lib/postgresql/data
+    networks:
+      - myBackendNet
+    ports:
+      - 5432:5432
+
+  dockerbackend:
+    depends_on:
+      - dockerPostgres
+    container_name: backend
+    # image: backtest:v3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - 4900:3000
+    networks:
+      - myBackendNet
+
+networks:
+  myBackendNet:
+    external: false

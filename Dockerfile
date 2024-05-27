@@ -7,6 +7,7 @@ RUN yarn
 COPY . .
 RUN yarn prisma generate
 RUN yarn build
+
 FROM node:18-alpine
 WORKDIR /usr/app
 COPY --from=builder /usr/app/dist ./dist
