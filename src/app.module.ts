@@ -22,6 +22,7 @@ import { UploadFilesModule } from './modules/upload-files/upload-files.module';
 import { TutorModule } from './modules/tutor/tutor.module';
 import { ProjectModule } from './modules/project/project.module';
 import { ReportModule } from './modules/report/report.module';
+import { DocumentsModule } from './modules/documents/documents.module';
 
 @Module({
   imports: [
@@ -64,6 +65,7 @@ import { ReportModule } from './modules/report/report.module';
     TutorModule,
     ProjectModule,
     ReportModule,
+    DocumentsModule,
   ],
   controllers: [AppController],
   providers: [

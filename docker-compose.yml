@@ -15,22 +15,21 @@ services:
       - myBackendNet
     ports:
       - 5432:5432
-
-  dockerbackend:
-    depends_on:
-      - dockerPostgres
-    container_name: backend
-    # image: backtest:v3
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    env_file:
-      - ./.env
-    ports:
-      - 4900:3000
-    networks:
-      - myBackendNet
+  # dockerbackend:
+  #   depends_on:
+  #     - dockerPostgres
+  #   container_name: backend
+  #   # image: backtest:v3
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   env_file:
+  #     - ./.env
+  #   ports:
+  #     - 4900:3000
+  #   networks:
+  #     - myBackendNet
 
 networks:
   myBackendNet:

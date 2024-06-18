@@ -195,6 +195,17 @@ model Agreement {
   company       Company       @relation(fields: [idCompany], references: [id])
 }
 
+model Documents {
+  id                 Int      @id @default(autoincrement())
+  process            String   
+  docName            String
+  version            String   @default("1.0")
+  elaborationDate    String
+  updateDate         String
+  code               String 
+  documentDefinition String  
+}
+
 enum TypeDNI {
   CEDULA
   RUC
