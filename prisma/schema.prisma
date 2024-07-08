@@ -197,13 +197,20 @@ model Agreement {
 
 model Documents {
   id                 Int      @id @default(autoincrement())
-  process            String   
+  process            String
   docName            String
   version            String   @default("1.0")
   elaborationDate    String
   updateDate         String
-  code               String 
-  documentDefinition String  
+  code               String
+  documentDefinition String
+}
+
+model StructuredCores {
+  id            Int       @id @default(autoincrement())
+  careerCode    String
+  careerLevel   String
+  coreName      String
 }
 
 enum TypeDNI {
